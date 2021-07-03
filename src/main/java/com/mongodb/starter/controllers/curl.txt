@@ -1,0 +1,60 @@
+curl --location --request POST 'http://localhost:8080/api/message' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "firstName":"person",
+    "lastName":"human",
+    "nick":"ImaAGiraffe",
+    "message":"hihi",
+    "receiver":"friend"
+}'
+
+curl --location --request POST 'http://localhost:8080/api/message' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "firstName":"human",
+    "lastName":"human",
+    "nick":"ImaAGiraffe",
+    "message":"hihi",
+    "receiver":"friend"
+}'
+
+curl --location --request POST 'http://localhost:8080/api/message' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "firstName":"Hill",
+    "lastName":"human",
+    "nick":"ImaAGiraffe",
+    "message":"database initialized!",
+    "receiver":"friend"
+}'
+
+curl --location --request GET 'http://localhost:8080/api/messages/count'
+
+curl --location --request POST 'http://localhost:8080/api/messages' \
+--header 'Content-Type: application/json' \
+--data-raw '[{
+    "nick":"user123",
+    "receiver":"user345",
+    "message":"hi!"
+},
+{
+    "nick":"user345",
+    "receiver":"user123",
+    "message":"hola!"
+ 
+}]'
+
+curl --location --request GET 'http://localhost:8080/api/messages'
+
+curl --location --request GET 'http://localhost:8080/api/message/60de7989bb23ce61fc8c6a1b'
+
+curl --location --request GET 'http://localhost:8080/api/persons/60de7a29bb23ce61fc8c6a1c,60de7989bb23ce61fc8c6a1b'
+
+curl --location --request DELETE 'http://localhost:8080/api/message/60de7b4abb23ce61fc8c6a1e'
+
+curl --location --request PUT 'http://localhost:8080/api/message' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "id": "60de7b4abb23ce61fc8c6a1e",
+    "message":"chicken"
+}'
